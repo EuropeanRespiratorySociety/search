@@ -1,4 +1,6 @@
 # Search Engine UI for the ERS
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/EuropeanRespiratorySociety/search.svg)](https://greenkeeper.io/)
 This is the UI for the search engine
 
 > A Vue.js project
