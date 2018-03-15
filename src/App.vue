@@ -20,7 +20,7 @@
   import SiteFooter from './components/base/SiteFooter'
   import SiteNavigation from './components/base/SiteNavigation'
   import SearchBar from './components/search/SearchBar'
-  import { mapActions, mapState } from 'vuex'
+  import { mapState } from 'vuex'
   
   export default {
     name: 'App',
@@ -33,7 +33,7 @@
     },
 
     computed: {
-      ...mapState([
+      ...mapState('base', [
         'drawer',
         'offline'
       ])
@@ -45,32 +45,7 @@
           return 'error elevation-0'
         }
         return 'primary elevation-0'
-      },
-
-      ...mapActions([
-        'toggleDrawer',
-        'searchAll',
-        'setQuery',
-        'searchByType',
-        'resetResults',
-        'setActiveTab'
-      ]),
-
-      toggle () {
-        this.toggleDrawer()
       }
-      // onScroll (e) {
-      //   let container = document.getElementById('header-t')
-      //   this.offsetTop = window.pageYOffset || document.documentElement.scrollTop
-
-      //   if (this.offsetTop > 100 && !this.offline) {
-      //     container.classList.remove('transparent')
-      //   }
-
-      //   if (this.offsetTop < 100 && !this.offline) {
-      //     container.classList.add('transparent')
-      //   }
-      // }
     },
     components: { SiteFooter, SiteNavigation, SearchBar }
   }

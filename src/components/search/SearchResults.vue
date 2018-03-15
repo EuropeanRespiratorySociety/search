@@ -31,9 +31,9 @@
 </template>
 
 <script>
-  import { mapActions, mapGetters } from 'vuex'
   import moment from 'moment'
-  // import * as config from '../../config'
+  import { createNamespacedHelpers } from 'vuex'
+  const { mapActions, mapState, mapGetters } = createNamespacedHelpers('search')
 
   export default {
     name: 'search-toolbar',
@@ -51,22 +51,28 @@
     },
 
     computed: {
-      ...mapGetters([
-        'results'
-      ]),
+      ...mapState({
+        counters: state => state.counters,
+        pageNumber: state => state.pageNumber,
+        i: state => state.i
+      }),
+
+      ...mapGetters({
+        results: 'results'
+      }),
 
       showPagination () {
         return this.results.length >= 10 || this.page > 1
       },
 
       pages () {
-        const index = this.$store.state.search.i
-        return this.setPages(this.$store.state.search.counters[index])
+        const index = this.i
+        return this.setPages(this.counters[index])
       },
 
       page: {
         get: function () {
-          return this.$store.state.pageNumber
+          return this.pageNumber
         },
         set: function (value) {
           this.setPageNumber(value)
@@ -82,7 +88,7 @@
 
       setPages (amount) {
         const f = amount => limit => Math.ceil(amount / limit)
-        return f(amount)(this.$store.state.limit)
+        return f(amount)(this.$store.state.base.limit)
       }
     },
 

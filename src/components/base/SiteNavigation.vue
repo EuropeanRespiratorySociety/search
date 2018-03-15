@@ -48,7 +48,7 @@
 
 <script>
   import { mapActions } from 'vuex'
-  import paths from '../../router/paths'
+  import paths from '@/router/paths'
   // reminder this.$vuetify.breakpoint.mdAndUp -> let you know the size of screen (bool)
 
   export default {
@@ -62,7 +62,7 @@
     },
 
     methods: {
-      ...mapActions([
+      ...mapActions('base', [
         'setDrawer'
       ])
     },
@@ -70,7 +70,7 @@
     computed: {
       drawer: {
         get: function () {
-          return this.$store.state.drawer
+          return this.$store.state.base.drawer
         },
         set: function (value) {
           this.setDrawer(value)

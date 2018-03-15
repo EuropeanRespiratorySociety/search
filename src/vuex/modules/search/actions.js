@@ -1,19 +1,11 @@
 import * as types from './mutation-types'
-import { HTTP } from '../helpers/http'
-import router from '../router'
-
-export const toggleDrawer = ({ commit }) => {
-  commit(types.TOGGLE_DRAWER, err => { console.log(err) })
-}
-
-export const setDrawer = ({ commit }, data) => {
-  commit(types.SET_DRAWER, data, err => { console.log(err) })
-}
+import { HTTP } from '@/helpers/http'
+import router from '@/router'
 
 export const searchAll = async ({ commit, dispatch, state }, query = null, type = null) => {
   const page = state.pageNumber
-  const q = query || state.search.q
-  const t = type || state.search.i
+  const q = query || state.q
+  const t = type || state.i
   const qs = setRoute(q, t, page)
   const results = await HTTP.get(`/search${qs}`)
   commit(types.SEARCH_RESULTS, results.data, err => { console.log(err) })
@@ -22,7 +14,7 @@ export const searchAll = async ({ commit, dispatch, state }, query = null, type 
 }
 
 export const getAggregations = async ({ commit, state }) => {
-  const query = state.search.q
+  const query = state.q
   const qs = setRoute(query, null, null, true)
   const results = await HTTP.get(`/search${qs}`)
   commit(types.SET_COUNTERS, results.data, err => { console.log(err) })
@@ -44,14 +36,6 @@ export const setQuery = async ({ commit }, query) => {
 
 export const setPageNumber = ({commit}, payload) => {
   commit(types.SET_PAGE_NUMBER, payload, err => { console.log(err) })
-}
-
-export const setOnline = ({commit}) => {
-  commit(types.SET_ONLINE)
-}
-
-export const setOffline = ({commit}) => {
-  commit(types.SET_OFFLINE)
 }
 
 function setRoute (query, type = null, page = 1, aggs = false, limit = 10) {

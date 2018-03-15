@@ -7,7 +7,7 @@
       color="primary"
       flat
     >
-      <v-toolbar-side-icon @click.stop="toggle"></v-toolbar-side-icon>
+      <v-toolbar-side-icon @click.stop="toggleDrawer"></v-toolbar-side-icon>
       <v-text-field
         prepend-icon="search"
         label="Search"
@@ -50,9 +50,9 @@
 </template>
 
 <script>
-  import { mapActions, mapGetters } from 'vuex'
-  // import moment from 'moment'
   import debounce from 'lodash/debounce'
+  import { createNamespacedHelpers, mapActions as mapBaseActions } from 'vuex'
+  const { mapActions, mapGetters } = createNamespacedHelpers('search')
 
   export default {
     name: 'search-results',
@@ -83,7 +83,7 @@
 
       tab: {
         get: function () {
-          return this.$store.state.search.i
+          return this.index
         },
         set: function (value) {
           this.setActiveTab(value)
@@ -107,6 +107,10 @@
         'searchByType',
         'resetResults',
         'setActiveTab'
+      ]),
+
+      ...mapBaseActions('base', [
+        'toggleDrawer'
       ]),
 
       search: debounce(function () {
