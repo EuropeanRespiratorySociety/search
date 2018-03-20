@@ -26,7 +26,7 @@ export default {
     state.counters = {
       all: data.total || 0,
       web: data.aggs.web || 0,
-      journals: data.aggs.journals || 0,
+      journals: data.aggs.journal || 0,
       congress: data.aggs.congress || 0
     }
   },

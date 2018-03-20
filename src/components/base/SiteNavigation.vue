@@ -6,7 +6,7 @@
         :mini-variant="mini"
         disable-route-watcher
         >
-        <div class="ml-5 mt-3">
+        <div class="text-xs-center">
             <i class="icon-ers icon" style="font-size:150px; color:#d0043c;"></i>
           <!--<img src="../../assets/logo-top.png" width="200" height="112" />-->
         </div>
@@ -20,9 +20,24 @@
         </v-list> -->
 
       <v-list dense class="pt-3">
+        <v-list-tile
+          v-if="(!item.group && (item.private && isAuthenticated) || (!item.group && !item.private))"
+          v-for="item in items"
+          :key="item.title"
+          :to="item.path"
+        >
+          <v-list-tile-action>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+
         <v-list-group
             v-model="item.active"
             v-for="item in items"
+            v-if="item.group"
             :key="item.title"
             :prepend-icon="item.icon"
             no-action
@@ -47,7 +62,7 @@
 </template>
 
 <script>
-  import { mapActions } from 'vuex'
+  import { mapGetters, mapActions } from 'vuex'
   import paths from '@/router/paths'
   // reminder this.$vuetify.breakpoint.mdAndUp -> let you know the size of screen (bool)
 
@@ -68,6 +83,10 @@
     },
 
     computed: {
+      ...mapGetters('authentication', [
+        'isAuthenticated'
+      ]),
+
       drawer: {
         get: function () {
           return this.$store.state.base.drawer

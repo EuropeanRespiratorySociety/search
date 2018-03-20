@@ -17,6 +17,7 @@
         v-model="query"
         @keyup="search()"
       ></v-text-field>
+      <logout />
       <v-tabs
         slot="extension"
         centered
@@ -51,6 +52,7 @@
 
 <script>
   import debounce from 'lodash/debounce'
+  import Logout from '@/components/authentication/Logout'
   import { createNamespacedHelpers, mapActions as mapBaseActions } from 'vuex'
   const { mapActions, mapGetters } = createNamespacedHelpers('search')
 
@@ -123,7 +125,9 @@
           this.resetResults()
         }
       }, 300)
-    }
+    },
+
+    components: {Logout}
   }
 </script>
 

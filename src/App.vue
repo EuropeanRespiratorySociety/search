@@ -1,7 +1,6 @@
 <template>
   <v-app>
     <site-navigation></site-navigation>
-    <search-bar></search-bar>
     <transition name="test" mode="out-in">
       <v-content>
         <v-container fluid>
@@ -19,7 +18,6 @@
 <script>
   import SiteFooter from './components/base/SiteFooter'
   import SiteNavigation from './components/base/SiteNavigation'
-  import SearchBar from './components/search/SearchBar'
   import { mapState } from 'vuex'
   
   export default {
@@ -47,7 +45,7 @@
         return 'primary elevation-0'
       }
     },
-    components: { SiteFooter, SiteNavigation, SearchBar }
+    components: { SiteFooter, SiteNavigation }
   }
 </script>
 

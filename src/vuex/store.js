@@ -3,12 +3,9 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import VuexPersistence from 'vuex-persist'
 
-// import * as actions from './actions'
-// import * as mutations from './mutations'
-// import * as getters from './getters'
-
-import search from './modules/search/store'
+import authentication from './modules/authentication/store'
 import base from './modules/base/store'
+import search from './modules/search/store'
 
 const vuexLocal = new VuexPersistence({
   storage: window.localStorage
@@ -20,8 +17,9 @@ Vue.use(Vuex)
 // then export the Vuex store for use by our components
 export default new Vuex.Store({
   modules: {
-    search: search,
-    base: base
+    authentication,
+    base,
+    search
   },
   plugins: [vuexLocal.plugin]
 })

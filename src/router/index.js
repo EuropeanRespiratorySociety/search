@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import SearchResults from '@/components/search/SearchResults'
+import SearchApp from '@/components/search/SearchApp'
+import AuthApp from '@/components/authentication/AuthApp'
 // import store from '../vuex/store'
 
 Vue.use(Router)
@@ -15,7 +16,17 @@ const router = new Router({
     {
       path: '/search',
       name: 'Home',
-      component: SearchResults
+      component: SearchApp
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: AuthApp
+    },
+    {
+      path: '/profile',
+      name: 'Profile',
+      component: AuthApp
     }
   ]
 })
