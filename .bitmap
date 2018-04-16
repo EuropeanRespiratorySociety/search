@@ -56,5 +56,247 @@
         "mainFile": "src/components/widgets/Ads.vue",
         "origin": "AUTHORED"
     },
-    "version": "0.12.9"
+    "authentication/auth-app": {
+        "files": [
+            {
+                "relativePath": "src/components/authentication/AuthApp.vue",
+                "test": false,
+                "name": "AuthApp.vue"
+            }
+        ],
+        "mainFile": "src/components/authentication/AuthApp.vue",
+        "origin": "AUTHORED"
+    },
+    "authentication/login": {
+        "files": [
+            {
+                "relativePath": "src/components/authentication/Login.vue",
+                "test": false,
+                "name": "Login.vue"
+            }
+        ],
+        "mainFile": "src/components/authentication/Login.vue",
+        "origin": "AUTHORED"
+    },
+    "authentication/logout": {
+        "files": [
+            {
+                "relativePath": "src/components/authentication/Logout.vue",
+                "test": false,
+                "name": "Logout.vue"
+            }
+        ],
+        "mainFile": "src/components/authentication/Logout.vue",
+        "origin": "AUTHORED"
+    },
+    "authentication/user-profile": {
+        "files": [
+            {
+                "relativePath": "src/components/authentication/UserProfile.vue",
+                "test": false,
+                "name": "UserProfile.vue"
+            }
+        ],
+        "mainFile": "src/components/authentication/UserProfile.vue",
+        "origin": "AUTHORED"
+    },
+    "base/simple-header": {
+        "files": [
+            {
+                "relativePath": "src/components/base/SimpleHeader.vue",
+                "test": false,
+                "name": "SimpleHeader.vue"
+            }
+        ],
+        "mainFile": "src/components/base/SimpleHeader.vue",
+        "origin": "AUTHORED"
+    },
+    "search/search-app": {
+        "files": [
+            {
+                "relativePath": "src/components/search/SearchApp.vue",
+                "test": false,
+                "name": "SearchApp.vue"
+            }
+        ],
+        "mainFile": "src/components/search/SearchApp.vue",
+        "origin": "AUTHORED"
+    },
+    "authentication/store": {
+        "files": [
+            {
+                "relativePath": "src/vuex/modules/authentication/store.js",
+                "test": false,
+                "name": "store.js"
+            }
+        ],
+        "mainFile": "src/vuex/modules/authentication/store.js",
+        "origin": "AUTHORED"
+    },
+    "base/store": {
+        "files": [
+            {
+                "relativePath": "src/vuex/modules/base/store.js",
+                "test": false,
+                "name": "store.js"
+            }
+        ],
+        "mainFile": "src/vuex/modules/base/store.js",
+        "origin": "AUTHORED"
+    },
+    "search/store": {
+        "files": [
+            {
+                "relativePath": "src/vuex/modules/search/store.js",
+                "test": false,
+                "name": "store.js"
+            }
+        ],
+        "mainFile": "src/vuex/modules/search/store.js",
+        "origin": "AUTHORED"
+    },
+    "authentication/actions": {
+        "files": [
+            {
+                "relativePath": "src/vuex/modules/authentication/actions.js",
+                "test": false,
+                "name": "actions.js"
+            }
+        ],
+        "mainFile": "src/vuex/modules/authentication/actions.js",
+        "origin": "AUTHORED"
+    },
+    "authentication/getters": {
+        "files": [
+            {
+                "relativePath": "src/vuex/modules/authentication/getters.js",
+                "test": false,
+                "name": "getters.js"
+            }
+        ],
+        "mainFile": "src/vuex/modules/authentication/getters.js",
+        "origin": "AUTHORED"
+    },
+    "authentication/mutation-types": {
+        "files": [
+            {
+                "relativePath": "src/vuex/modules/authentication/mutation-types.js",
+                "test": false,
+                "name": "mutation-types.js"
+            }
+        ],
+        "mainFile": "src/vuex/modules/authentication/mutation-types.js",
+        "origin": "AUTHORED"
+    },
+    "authentication/mutations": {
+        "files": [
+            {
+                "relativePath": "src/vuex/modules/authentication/mutations.js",
+                "test": false,
+                "name": "mutations.js"
+            }
+        ],
+        "mainFile": "src/vuex/modules/authentication/mutations.js",
+        "origin": "AUTHORED"
+    },
+    "base/actions": {
+        "files": [
+            {
+                "relativePath": "src/vuex/modules/base/actions.js",
+                "test": false,
+                "name": "actions.js"
+            }
+        ],
+        "mainFile": "src/vuex/modules/base/actions.js",
+        "origin": "AUTHORED"
+    },
+    "base/getters": {
+        "files": [
+            {
+                "relativePath": "src/vuex/modules/base/getters.js",
+                "test": false,
+                "name": "getters.js"
+            }
+        ],
+        "mainFile": "src/vuex/modules/base/getters.js",
+        "origin": "AUTHORED"
+    },
+    "base/mutation-types": {
+        "files": [
+            {
+                "relativePath": "src/vuex/modules/base/mutation-types.js",
+                "test": false,
+                "name": "mutation-types.js"
+            }
+        ],
+        "mainFile": "src/vuex/modules/base/mutation-types.js",
+        "origin": "AUTHORED"
+    },
+    "base/mutations": {
+        "files": [
+            {
+                "relativePath": "src/vuex/modules/base/mutations.js",
+                "test": false,
+                "name": "mutations.js"
+            }
+        ],
+        "mainFile": "src/vuex/modules/base/mutations.js",
+        "origin": "AUTHORED"
+    },
+    "search/actions": {
+        "files": [
+            {
+                "relativePath": "src/vuex/modules/search/actions.js",
+                "test": false,
+                "name": "actions.js"
+            }
+        ],
+        "mainFile": "src/vuex/modules/search/actions.js",
+        "origin": "AUTHORED"
+    },
+    "search/getters": {
+        "files": [
+            {
+                "relativePath": "src/vuex/modules/search/getters.js",
+                "test": false,
+                "name": "getters.js"
+            }
+        ],
+        "mainFile": "src/vuex/modules/search/getters.js",
+        "origin": "AUTHORED"
+    },
+    "search/mutation-types": {
+        "files": [
+            {
+                "relativePath": "src/vuex/modules/search/mutation-types.js",
+                "test": false,
+                "name": "mutation-types.js"
+            }
+        ],
+        "mainFile": "src/vuex/modules/search/mutation-types.js",
+        "origin": "AUTHORED"
+    },
+    "search/mutations": {
+        "files": [
+            {
+                "relativePath": "src/vuex/modules/search/mutations.js",
+                "test": false,
+                "name": "mutations.js"
+            }
+        ],
+        "mainFile": "src/vuex/modules/search/mutations.js",
+        "origin": "AUTHORED"
+    },
+    "stylus/main": {
+        "files": [
+            {
+                "relativePath": "src/stylus/main.styl",
+                "test": false,
+                "name": "main.styl"
+            }
+        ],
+        "mainFile": "src/stylus/main.styl",
+        "origin": "AUTHORED"
+    },
+    "version": "0.12.10"
 }

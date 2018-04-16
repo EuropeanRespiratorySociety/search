@@ -14,6 +14,7 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
+    "@bit/bit.envs.bundlers.vue": "0.0.2",
     "axios": "^0.18.0",
     "lodash": "^4.17.5",
     "moment": "^2.21.0",
