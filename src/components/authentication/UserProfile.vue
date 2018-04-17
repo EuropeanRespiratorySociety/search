@@ -16,7 +16,7 @@
           </v-layout>
         </v-card-media>
         <v-list two-line>
-          <v-list-tile @click="" v-if="user.Mobile">
+          <v-list-tile v-if="user.Mobile">
             <v-list-tile-action>
               <v-icon color="indigo">phone</v-icon>
             </v-list-tile-action>
@@ -25,7 +25,7 @@
               <v-list-tile-sub-title>Mobile</v-list-tile-sub-title>
             </v-list-tile-content>
           </v-list-tile>
-          <v-list-tile @click="" v-if="user.Phone1">
+          <v-list-tile v-if="user.Phone1">
             <v-list-tile-action>
               <v-icon v-if="!user.Mobile" color="indigo">phone</v-icon>
             </v-list-tile-action>
@@ -34,7 +34,7 @@
               <v-list-tile-sub-title>Phone 1</v-list-tile-sub-title>
             </v-list-tile-content>
           </v-list-tile>
-          <v-list-tile @click="" v-if="user.Phone2">
+          <v-list-tile v-if="user.Phone2">
             <v-list-tile-action>
               <v-icon v-if="!user.Mobile && !user.Phone1" color="indigo">phone</v-icon>
             </v-list-tile-action>
@@ -44,7 +44,7 @@
             </v-list-tile-content>
           </v-list-tile>
           <v-divider inset></v-divider>
-          <v-list-tile @click="">
+          <v-list-tile>
             <v-list-tile-action>
               <v-icon color="indigo">mail</v-icon>
             </v-list-tile-action>
@@ -53,7 +53,7 @@
               <v-list-tile-sub-title>Main email</v-list-tile-sub-title>
             </v-list-tile-content>
           </v-list-tile>
-          <v-list-tile @click="">
+          <v-list-tile>
             <v-list-tile-action>
             </v-list-tile-action>
             <v-list-tile-content v-if="user.SmtpAddress2">
@@ -62,7 +62,7 @@
             </v-list-tile-content>
           </v-list-tile>
           <v-divider inset></v-divider>
-          <v-list-tile @click="">
+          <v-list-tile>
             <v-list-tile-action>
               <v-icon color="indigo">location_on</v-icon>
             </v-list-tile-action>
@@ -77,42 +77,42 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex'
-  export default {
-    name: 'user-profile',
-    data () {
-      return {
-      }
-    },
+import { mapGetters } from 'vuex'
 
-    watch: {
-      'isAuthenticated': {
-        immediate: true,
-        handler (v) {
-          if (!v) this.$router.push({path: '/login'})
-        }
-      }
-    },
+export default {
+  name: 'user-profile',
+  data () {
+    return {
+    }
+  },
 
-    computed: {
-      ...mapGetters('authentication', [
-        'isAuthenticated',
-        'user',
-        'name',
-        'street'
-      ]),
-
-      photo () {
-        if (this.user) {
-          return this.user.PhotoUrl || 'https://source.unsplash.com/random/900x300'
-        }
-        return ''
+  watch: {
+    isAuthenticated: {
+      immediate: true,
+      handler (v) {
+        if (!v) this.$router.push({ path: '/login' })
       }
     }
+  },
 
+  computed: {
+    ...mapGetters('authentication', [
+      'isAuthenticated',
+      'user',
+      'name',
+      'street'
+    ]),
+
+    photo () {
+      if (this.user) {
+        return this.user.PhotoUrl || 'https://source.unsplash.com/random/900x300'
+      }
+      return ''
+    }
   }
+
+}
 </script>
 
-<style lang="stylus">
-  @import '../../stylus/main'
+<style scoped>
 </style>

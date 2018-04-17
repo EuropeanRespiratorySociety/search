@@ -1,5 +1,5 @@
 <template>
-      <v-toolbar 
+      <v-toolbar
       app
       tabs
       fixed
@@ -46,91 +46,92 @@
         >
           Education
         </v-tab>
-      </v-tabs>  
+      </v-tabs>
     </v-toolbar>
 </template>
 
 <script>
-  import debounce from 'lodash/debounce'
-  import Logout from '@/components/authentication/Logout'
-  import { createNamespacedHelpers, mapActions as mapBaseActions } from 'vuex'
-  const { mapActions, mapGetters } = createNamespacedHelpers('search')
+import debounce from 'lodash/debounce'
+import Logout from '@/components/authentication/Logout.vue'
+import { createNamespacedHelpers, mapActions as mapBaseActions } from 'vuex'
 
-  export default {
-    name: 'search-results',
-    data () {
-      return {
-        fixed: false
-      }
-    },
+const { mapActions, mapGetters } = createNamespacedHelpers('search')
 
-    watch: {
-      query: 'search'
-    },
+export default {
+  name: 'search-results',
+  data () {
+    return {
+      fixed: false
+    }
+  },
 
-    created () {
-      const q = this.routeQuery
-      q
-        ? this.setQuery(q)
-        : this.resetResults()
-    },
+  watch: {
+    query: 'search'
+  },
 
-    computed: {
-      ...mapGetters([
-        'searchQuery',
-        'routeQuery',
-        'counters',
-        'index'
-      ]),
+  created () {
+    const q = this.routeQuery
+    q
+      ? this.setQuery(q)
+      : this.resetResults()
+  },
 
-      tab: {
-        get: function () {
-          return this.index
-        },
-        set: function (value) {
-          this.setActiveTab(value)
-        }
+  computed: {
+    ...mapGetters([
+      'searchQuery',
+      'routeQuery',
+      'counters',
+      'index'
+    ]),
+
+    tab: {
+      get () {
+        return this.index
       },
-
-      query: {
-        get: function () {
-          return this.searchQuery
-        },
-        set: function (value) {
-          this.setQuery(value)
-        }
+      set (value) {
+        this.setActiveTab(value)
       }
     },
 
-    methods: {
-      ...mapActions([
-        'searchAll',
-        'setQuery',
-        'searchByType',
-        'resetResults',
-        'setActiveTab'
-      ]),
+    query: {
+      get () {
+        return this.searchQuery
+      },
+      set (value) {
+        this.setQuery(value)
+      }
+    }
+  },
 
-      ...mapBaseActions('base', [
-        'toggleDrawer'
-      ]),
+  methods: {
+    ...mapActions([
+      'searchAll',
+      'setQuery',
+      'searchByType',
+      'resetResults',
+      'setActiveTab'
+    ]),
 
-      search: debounce(function () {
-        const i = this.index
-        if (this.query.length > 0) {
-          this.setActiveTab(i)
-          this.searchAll(this.query)
-        } else {
-          this.setActiveTab(i)
-          this.resetResults()
-        }
-      }, 300)
-    },
+    ...mapBaseActions('base', [
+      'toggleDrawer'
+    ]),
 
-    components: {Logout}
-  }
+    search: debounce(function () {
+      const i = this.index
+      if (this.query.length > 0) {
+        this.setActiveTab(i)
+        this.searchAll(this.query)
+      } else {
+        this.setActiveTab(i)
+        this.resetResults()
+      }
+    }, 300)
+  },
+
+  components: { Logout }
+}
 </script>
 
-<style lang="stylus">
-  @import '../../stylus/main'
+<style scoped>
+
 </style>

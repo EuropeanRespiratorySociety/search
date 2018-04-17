@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar 
+  <v-toolbar
       app
       fixed
       dark
@@ -13,21 +13,21 @@
 </template>
 
 <script>
-  import Logout from '@/components/authentication/Logout'
-  import { mapActions } from 'vuex'
-  
-  export default {
-    name: 'simple-header',
-    data () {
-      return {
-        fixed: false
-      }
-    },
-    methods: {
-      ...mapActions('base', [
-        'toggleDrawer'
-      ])
-    },
-    components: {Logout}
-  }
+import Logout from '@/components/authentication/Logout.vue'
+import { mapActions } from 'vuex'
+
+export default {
+  name: 'simple-header',
+  data () {
+    return {
+      fixed: false
+    }
+  },
+  methods: {
+    ...mapActions('base', [
+      'toggleDrawer'
+    ])
+  },
+  components: { Logout }
+}
 </script>

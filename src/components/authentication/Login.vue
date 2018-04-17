@@ -1,14 +1,14 @@
 <template>
 <v-flex xs12 sm12 md8 lg8 offset-md2 offset-lg2>
   <v-container>
-    <v-alert 
-      class="error" 
-      icon="warning" 
+    <v-alert
+      class="error"
+      icon="warning"
       :value="alert"
       transition="scale-transition"
     >
       {{error}}
-    </v-alert> 
+    </v-alert>
     <v-card color="grey lighten-4" flat>
     <v-card-text>
     <v-form v-model="valid">
@@ -44,7 +44,7 @@
           </v-flex>
         </v-layout>
       </v-container>
-    </v-form>  
+    </v-form>
     </v-card-text>
   </v-card>
   </v-container>
@@ -52,57 +52,57 @@
 </template>
 
 <script>
-  import { mapActions, mapGetters } from 'vuex'
-  export default {
-    name: 'login',
-    data () {
-      return {
-        valid: false,
-        alert: false,
-        e2: false,
-        password: '',
-        username: ''
-        // emailRules: [
-        //   (v) => !!v || 'E-mail is required',
-        //   (v) => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
-        // ]
-      }
-    },
-    watch: {
-      'isAuthenticated': function (v) {
-        if (v) {
-          this.$router.push({path: '/'})
-        }
-      },
+import { mapActions, mapGetters } from 'vuex'
 
-      'error': function (v) {
-        if (v) this.alert = true
-      }
-    },
-
-    computed: {
-      ...mapGetters('authentication', [
-        'isAuthenticated',
-        'user',
-        'error'
-      ])
-    },
-
-    methods: {
-      ...mapActions('authentication', [
-        'login'
-      ]),
-
-      submit () {
-        // hint member@somewhere.com member
-        const credentials = {username: this.username, password: this.password}
-        this.login(credentials)
-      }
+export default {
+  name: 'login',
+  data () {
+    return {
+      valid: false,
+      alert: false,
+      e2: false,
+      password: '',
+      username: ''
+      // emailRules: [
+      //   (v) => !!v || 'E-mail is required',
+      //   (v) => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
+      // ]
     }
+  },
+  watch: {
+    isAuthenticated (v) {
+      if (v) {
+        this.$router.push({ path: '/' })
+      }
+    },
 
+    error (v) {
+      if (v) this.alert = true
+    }
+  },
+
+  computed: {
+    ...mapGetters('authentication', [
+      'isAuthenticated',
+      'user',
+      'error'
+    ])
+  },
+
+  methods: {
+    ...mapActions('authentication', [
+      'login'
+    ]),
+
+    submit () {
+      // hint member@somewhere.com member
+      const credentials = { username: this.username, password: this.password }
+      this.login(credentials)
+    }
   }
+
+}
 </script>
 
-<style lang="stylus">
-  @import '../../stylus/main'
+<style scoped>
 </style>

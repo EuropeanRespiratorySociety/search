@@ -1,7 +1,9 @@
 import axios from 'axios'
 
 export const HTTP = axios.create({
-  baseURL: process.env.apiUrl
+  baseURL: process.env.NODE_ENV === 'production'
+    ? 'https://api.ernset.org'
+    : 'http://localhost:3030'
 })
 
 export const sureThing = promise =>

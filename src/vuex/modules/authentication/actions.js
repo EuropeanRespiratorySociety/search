@@ -1,9 +1,9 @@
-import * as types from './mutation-types'
 import { HTTP, sureThing } from '@/helpers/http'
+import * as types from './mutation-types'
 
-export const authenticate = ({commit}) => {
+// export const authenticate = ({ commit }) => {
 
-}
+// };
 
 // Login user with email / password
 export const login = async ({ commit }, payload) => {
@@ -16,7 +16,7 @@ export const login = async ({ commit }, payload) => {
   //   .catch(e => {
   //     commit(types.SET_ERROR, e.response.data.errors)
   //   })
-  const {ok, data, error} = await sureThing(HTTP.post('/ers/contacts/login', payload))
+  const { ok, data, error } = await sureThing(HTTP.post('/ers/contacts/login', payload))
   // eslint-disable-next-line
   ok
     ? (
@@ -27,6 +27,6 @@ export const login = async ({ commit }, payload) => {
 }
 
 // Logout user
-export const logout = ({commit}) => {
+export const logout = ({ commit }) => {
   commit(types.LOGOUT)
 }

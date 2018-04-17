@@ -21,7 +21,9 @@
 
       <v-list dense class="pt-3">
         <v-list-tile
-          v-if="(!item.group && (item.private && isAuthenticated) || (!item.group && !item.private))"
+          v-if="(
+            !item.group && (item.private && isAuthenticated)
+            || (!item.group && !item.private))"
           v-for="item in items"
           :key="item.title"
           :to="item.path"
@@ -48,7 +50,11 @@
           </v-list-tile-content>
         </v-list-tile>
 
-        <v-list-tile v-for="subItem in item.items" :key="subItem.title" @click="" :to="`${item.path}${subItem.path}`">
+        <v-list-tile
+          v-for="subItem in item.items"
+          :key="subItem.title"
+          :to="`${item.path}${subItem.path}`"
+        >
           <v-list-tile-action>
             <v-icon>{{ subItem.icon }}</v-icon>
           </v-list-tile-action>
@@ -56,52 +62,53 @@
             <v-list-tile-title>{{ subItem.title }}</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-      </v-list-group>  
+      </v-list-group>
       </v-list>
     </v-navigation-drawer>
 </template>
 
 <script>
-  import { mapGetters, mapActions } from 'vuex'
-  import paths from '@/router/paths'
-  // reminder this.$vuetify.breakpoint.mdAndUp -> let you know the size of screen (bool)
+import { mapGetters, mapActions } from 'vuex'
+import paths from '@/router/paths'
+// reminder this.$vuetify.breakpoint.mdAndUp -> let you know the size of screen (bool)
 
-  export default {
-    name: 'site-navigation',
-    data () {
-      return {
-        mini: false,
-        items: paths,
-        right: null
-      }
-    },
+export default {
+  name: 'site-navigation',
+  data () {
+    return {
+      mini: false,
+      items: paths,
+      right: null
+    }
+  },
 
-    methods: {
-      ...mapActions('base', [
-        'setDrawer'
-      ])
-    },
+  methods: {
+    ...mapActions('base', [
+      'setDrawer'
+    ])
+  },
 
-    computed: {
-      ...mapGetters('authentication', [
-        'isAuthenticated'
-      ]),
+  computed: {
+    ...mapGetters('authentication', [
+      'isAuthenticated'
+    ]),
 
-      drawer: {
-        get: function () {
-          return this.$store.state.base.drawer
-        },
-        set: function (value) {
-          this.setDrawer(value)
-        }
+    drawer: {
+      get () {
+        return this.$store.state.base.drawer
+      },
+      set (value) {
+        this.setDrawer(value)
       }
     }
-
   }
+
+}
 </script>
 
-<style lang="stylus">
-  @import '../../stylus/main'
+<style>
+  @import '../../css/fonts.styl';
+
   .logo-title {
     height: 112px !important;
   }

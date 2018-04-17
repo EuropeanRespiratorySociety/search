@@ -8,7 +8,7 @@
             <router-view></router-view>
           </v-layout>
         </v-container>
-      </v-content>    
+      </v-content>
     </transition>
 
     <site-footer></site-footer>
@@ -16,43 +16,40 @@
 </template>
 
 <script>
-  import SiteFooter from './components/base/SiteFooter'
-  import SiteNavigation from './components/base/SiteNavigation'
-  import { mapState } from 'vuex'
-  
-  export default {
-    name: 'App',
-    data () {
-      return {
-        offsetTop: 0,
-        height: 600,
-        rightDrawer: false
-      }
-    },
+import { mapState } from 'vuex'
+import SiteFooter from './components/base/SiteFooter.vue'
+import SiteNavigation from './components/base/SiteNavigation.vue'
 
-    computed: {
-      ...mapState('base', [
-        'drawer',
-        'offline'
-      ])
-    },
+export default {
+  name: 'App',
+  data () {
+    return {
+      offsetTop: 0,
+      height: 600,
+      rightDrawer: false
+    }
+  },
 
-    methods: {
-      setClass () {
-        if (this.offline) {
-          return 'error elevation-0'
-        }
-        return 'primary elevation-0'
+  computed: {
+    ...mapState('base', [
+      'drawer',
+      'offline'
+    ])
+  },
+
+  methods: {
+    setClass () {
+      if (this.offline) {
+        return 'error elevation-0'
       }
-    },
-    components: { SiteFooter, SiteNavigation }
-  }
+      return 'primary elevation-0'
+    }
+  },
+  components: { SiteFooter, SiteNavigation }
+}
 </script>
 
 <style lang="stylus">
-  @import './stylus/main'
-  @import './css/fonts.css'
-
   .card--flex-toolbar {
     margin-top: -64px;
   }

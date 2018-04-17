@@ -1,19 +1,9 @@
-export const searchQuery = state => {
-  return state.q
-}
+export const searchQuery = state => state.q
 
-export const routeQuery = (state, getters, rootState) => {
-  return rootState.route.query.q || false
-}
+export const routeQuery = (state, getters, rootState) => rootState.route.query.q || false
 
-export const counters = state => {
-  return state.counters
-}
+export const counters = state => state.counters
 
-export const index = state => {
-  return state.i
-}
+export const index = state => state.i
 
-export const results = state => {
-  return state.results
-}
+export const results = state => state.results

@@ -49,9 +49,9 @@
     </v-layout>
 </template>
 <script>
-  export default {
-    name: 'ads'
-  }
+export default {
+  name: 'ads'
+}
 </script>
 
 <style lang="stylus">

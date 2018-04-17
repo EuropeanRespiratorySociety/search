@@ -8,7 +8,7 @@
         <span>Favorites</span>
         <v-icon>favorite</v-icon>
       </v-btn>
-  
+
       <v-bottom-sheet v-model="sheet" inset>
       <v-btn slot="activator" flat value="register">
         <span>Register</span>
@@ -28,17 +28,16 @@
 </template>
 
 <script>
-  export default {
-    name: 'site-footer',
-    data () {
-      return {
-        e1: 'recent',
-        sheet: false
-      }
+export default {
+  name: 'site-footer',
+  data () {
+    return {
+      e1: 'recent',
+      sheet: false
     }
   }
+}
 </script>
 
-<style lang="stylus">
-  @import '../../stylus/main'
+<style>
 </style>
