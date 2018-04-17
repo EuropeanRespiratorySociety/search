@@ -50,7 +50,7 @@
 </template>
 <script>
 export default {
-  name: 'ads'
+  name: 'sleep-ads'
 }
 </script>
 

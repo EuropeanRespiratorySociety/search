@@ -1,9 +1,23 @@
 export default [
   {
-    title: 'Home', icon: 'home', path: '/', group: false
+    title: 'Home',
+    icon: 'home',
+    path: '/',
+    group: false
   },
   {
-    title: 'Profile', icon: 'account_box', path: '/profile', group: false, private: true
+    title: 'External',
+    icon: 'home',
+    path: 'https://www.ersnet.org',
+    external: true,
+    group: false
+  },
+  {
+    title: 'Profile',
+    icon: 'account_box',
+    path: '/profile',
+    group: false,
+    private: true
   },
   {
     title: 'Programme',

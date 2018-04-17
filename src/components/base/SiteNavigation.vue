@@ -26,7 +26,8 @@
             || (!item.group && !item.private))"
           v-for="item in items"
           :key="item.title"
-          :to="item.path"
+          :to="!item.external ? item.path : null"
+          :href="item.external ? item.path : null"
         >
           <v-list-tile-action>
             <v-icon>{{ item.icon }}</v-icon>
