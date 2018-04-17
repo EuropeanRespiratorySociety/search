@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import SearchApp from '@/components/search/SearchApp.vue'
-import AuthApp from '@/components/authentication/AuthApp.vue'
+
+const SearchApp = () => import('@/components/search/SearchApp.vue')
+const AuthApp = () => import('@/components/authentication/AuthApp.vue')
+
 // import store from '../vuex/store'
 
 Vue.use(Router)
