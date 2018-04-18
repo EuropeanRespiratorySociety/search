@@ -2,21 +2,18 @@ export default [
   {
     title: 'Home',
     icon: 'home',
-    path: '/',
-    group: false
+    path: '/'
   },
   {
     title: 'External',
     icon: 'home',
     path: 'https://www.ersnet.org',
-    external: true,
-    group: false
+    external: true
   },
   {
     title: 'Profile',
     icon: 'account_box',
     path: '/profile',
-    group: false,
     private: true
   },
   {
