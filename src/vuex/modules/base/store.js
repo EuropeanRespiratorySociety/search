@@ -13,7 +13,8 @@ export default {
     skip: 0,
     limit: 10,
     length: 0,
-    offline: false
+    offline: false,
+    showMini: true
   },
   mutations: mutations.default
 }

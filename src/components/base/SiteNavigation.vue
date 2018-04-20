@@ -11,7 +11,7 @@
         <v-list class="pa-0">
           <v-list-tile avatar>
             <v-list-tile-avatar>
-              <i v-if="mini" class="icon-ers icon" style="font-size:50px; color:#d0043c;"></i>
+              <i v-if="mini && showMini" class="icon-ers icon" style="font-size:50px; color:#d0043c;"></i>
             </v-list-tile-avatar>
             <v-list-tile-content style="height:130px;padding: 10px 0">
               <v-list-tile-title style="height:100px;margin-top:30px">
@@ -21,7 +21,7 @@
               </v-list-tile-title>
             </v-list-tile-content>
             <v-list-tile-action>
-              <v-btn icon @click.native.stop="mini = !mini">
+              <v-btn v-if="showMini" icon @click.native.stop="mini = !mini">
                 <v-icon>chevron_left</v-icon>
               </v-btn>
             </v-list-tile-action>
@@ -30,7 +30,7 @@
       </v-toolbar>
 
       <v-list class="pa-1">
-        <v-list-tile v-if="mini" @click.native.stop="mini = !mini">
+        <v-list-tile v-if="mini && showMini" @click.native.stop="mini = !mini">
           <v-list-tile-action>
             <v-icon>chevron_right</v-icon>
           </v-list-tile-action>
@@ -119,6 +119,10 @@ export default {
     ...mapGetters('authentication', [
       'isAuthenticated'
     ]),
+
+    showMini () {
+      return this.$store.state.base.showMini
+    },
 
     drawer: {
       get () {
